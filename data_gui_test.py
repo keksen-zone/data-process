@@ -175,15 +175,38 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f6.write("%5s%15s%10s%10s%10s\n"%("6",sfs,"0.05",sfq,xsxs))
             f6.write("%5s%15.3f%10s%10s%10s\n"%("8",float(sfs)-0.01,csn,csa,"11"))
 
+    # ！！！--------file7、8部分尚未完成，对应关系？运行逻辑？
     def file7_8_save(self):
         with open("file7.txt","w") as f7:
-            pass
+            f7.write("COFT-----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
+            f7.write("")
         with open("file8.txt","w") as f8:
-            pass
+            f8.write("GENER\n")
     def file9_save(self):
-        pass
+        wgmc = self.lineEdit_51.text()
+        kxd = self.lineEdit_52.text()
+        cszt = self.lineEdit_53.text()
+        zbl1 = self.lineEdit_54.text()
+        zbl2 = self.lineEdit_55.text()
+        zbl3 = self.lineEdit_56.text()
+        zbl4 = self.lineEdit_57.text()
+        with open("file9.txt","w") as f9:
+            f9.write("INCON----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
+            f9.write("%5s%25s%5s\n"%(wgmc,kxd,cszt))
+            f9.write("%20s%20s%20s%20s\n"%(zbl1,zbl2,zbl3,zbl4))
     def file10_save(self):
-        pass
+        wgmc = self.lineEdit_73.text()
+        cszt = self.lineEdit_75.text()
+        zbl1 = self.lineEdit_58.text()
+        zbl2 = self.lineEdit_60.text()
+        zbl3 = self.lineEdit_74.text()
+        zbl4 = self.lineEdit_59.text()
+        with open("file10.txt","w") as f10:
+            f10.write("INDOM----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
+            f10.write("%5s%5s\n"%(wgmc,cszt))
+            f10.write("%20s%20s%20s%20s\n"%(zbl1,zbl2,zbl3,zbl4))
+            f10.write("ENDCY----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
+
     def make_mesh(self):
         pass
     def exit_data(self):

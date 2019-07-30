@@ -91,7 +91,7 @@ def draw_3d(x, y, z, time, attri, grid_line, touming):
     m.set_array([])
     plt.colorbar(m)
     #plt.colorbar(colors)
-    plt.title('this is a test')
+    # plt.title('this is a test')
     plt.show()
 
 #draw_3d(25,25,15," 1.55000000E+03.csv",1,1,0.5)

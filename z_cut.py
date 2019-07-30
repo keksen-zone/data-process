@@ -76,7 +76,7 @@ def z_cut(time,attri,z_index, grid_line, x, y, z):
     print(len(colors))
     g = plt.contourf(X, Y, Z,len(colors), alpha=0.8, cmap=plt.cm.jet)
     #plt.clabel(g, inline=1, fontsize=10)
-    plt.title('this is a test')
+    # plt.title('this is a test')
     plt.colorbar()
     # 网格线为黑色实线
     if grid_line==1:
