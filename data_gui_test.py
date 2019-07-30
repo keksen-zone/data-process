@@ -36,9 +36,9 @@ class DataWindow(QMainWindow, Ui_MainWindow):
     def load_file7_8(self):
         pass
     def load_file9(self):
-        pass
+        os.system("notepad file9.txt")
     def load_file10(self):
-        pass
+        os.system("notepad file10.txt")
 
     def file1_save(self):
         with open("file1.txt",'w') as f1:
@@ -194,6 +194,8 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f9.write("INCON----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
             f9.write("%5s%25s%5s\n"%(wgmc,kxd,cszt))
             f9.write("%20s%20s%20s%20s\n"%(zbl1,zbl2,zbl3,zbl4))
+        QMessageBox.information(self, '已完成', '数据成功保存在file9.txt',QMessageBox.Yes)
+
     def file10_save(self):
         wgmc = self.lineEdit_73.text()
         cszt = self.lineEdit_75.text()
@@ -206,9 +208,9 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f10.write("%5s%5s\n"%(wgmc,cszt))
             f10.write("%20s%20s%20s%20s\n"%(zbl1,zbl2,zbl3,zbl4))
             f10.write("ENDCY----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
-
+        QMessageBox.information(self, '已完成', '数据成功保存在file10.txt', QMessageBox.Yes)
     def make_mesh(self):
-        pass
+        os.system("")
     def exit_data(self):
         pass
     def combine_all_files(self):
