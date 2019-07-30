@@ -41,11 +41,14 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
+        self.pushButton.clicked.connect(MainWindow.open_data)
+        self.pushButton_2.clicked.connect(MainWindow.calculate)
+        self.pushButton_3.clicked.connect(MainWindow.open_draw)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "v0.1"))
-        self.pushButton.setText(_translate("MainWindow", "数据"))
-        self.pushButton_2.setText(_translate("MainWindow", "计算"))
-        self.pushButton_3.setText(_translate("MainWindow", "绘图"))
+        self.pushButton.setText(_translate("MainWindow", "数据管理"))
+        self.pushButton_2.setText(_translate("MainWindow", "模拟计算"))
+        self.pushButton_3.setText(_translate("MainWindow", "结果分析"))

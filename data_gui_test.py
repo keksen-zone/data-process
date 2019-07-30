@@ -24,31 +24,58 @@ class DataWindow(QMainWindow, Ui_MainWindow):
         # self.action.triggered.connect(self.data_extract)
 
 
-    # def pmt_clicked(self):
-    #
-    # def pmt2_clicked(self):
-    #
-    # def open_Plot_Data(self):
-    #
-    # def open_Plot_Coord(self):
-    #
-    # def open_SS_Time_Series(self):
-    #
-    # def open_Hydrate_Info(self):
-    #
-    # def data_extract(self):
-    #
-    # def data_exist(self):
-    #
-    # def hpj(self):
-    #
-    #
-    # def h3d(self):
-    #
-    # def hqx(self):
-    #
-    # def hpm(self):
+    def load_file1(self):
+        pass
+    def load_file2(self):
+        pass
+    def load_file3(self):
+        pass
+    def load_file4(self):
+        pass
+    def load_file5(self):
+        pass
+    def load_file6(self):
+        pass
+    def load_file7_8(self):
+        pass
+    def load_file9(self):
+        pass
+    def load_file10(self):
+        pass
 
+    def file1_save(self):
+        with open("file1.txt",'w') as f1:
+            str=""
+            if (self.comboBox.currentIndex()==0):
+                print("选择了平衡")
+                str="HYDRATE-EQUILIBRIUM"
+            elif (self.comboBox.currentIndex()==1):
+                print("选择了动力学")
+                str="HYDRATE-KINETIC"
+            print(str)
+            f1.write("%5d%5d%5d%5d%5d\r\n"%())
+    def file2_save(self):
+        pass
+    def file3_save(self):
+        pass
+    def file4_save(self):
+        pass
+    def file5_save(self):
+        pass
+    def file6_save(self):
+        pass
+    def file7_8_save(self):
+        pass
+    def file9_save(self):
+        pass
+    def file10_save(self):
+        pass
+    def make_mesh(self):
+        pass
+    def exit_data(self):
+        pass
+    def combine_all_files(self):
+        pass
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
