@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>969</width>
-    <height>656</height>
+    <width>901</width>
+    <height>609</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -40,7 +40,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_5">
        <attribute name="title">
@@ -2151,7 +2151,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_10">
        <attribute name="title">
@@ -2421,6 +2421,19 @@
           <width>113</width>
           <height>21</height>
          </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_30">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>420</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>保存</string>
         </property>
        </widget>
       </widget>
@@ -3188,7 +3201,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>969</width>
+     <width>901</width>
      <height>26</height>
     </rect>
    </property>
@@ -3196,5 +3209,365 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>file1_save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>459</x>
+     <y>406</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>599</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_12</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>file5_save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>417</x>
+     <y>554</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>586</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_28</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>file2_save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>544</x>
+     <y>414</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>577</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_13</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>file3_save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>411</x>
+     <y>504</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>509</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_15</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>file6_save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>424</x>
+     <y>353</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>723</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_30</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>file4_save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>426</x>
+     <y>511</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>704</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_18</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>file9_save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>645</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>394</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_20</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>file10_save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>663</x>
+     <y>444</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>231</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_22</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>file7_8_save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>417</x>
+     <y>404</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>714</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_23</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>combine_all_files()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>257</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>259</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_24</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>exit_data()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>556</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>291</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>load_file1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>127</x>
+     <y>118</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>900</x>
+     <y>129</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_26</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>load_file2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>144</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>900</x>
+     <y>191</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>load_file5()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>92</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>900</x>
+     <y>159</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_25</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>make_mesh()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>494</x>
+     <y>557</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>593</x>
+     <y>608</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_29</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>load_file3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>57</x>
+     <y>92</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>900</x>
+     <y>211</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_14</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>load_file6()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>100</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>900</x>
+     <y>113</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_16</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>load_file4()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>92</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>900</x>
+     <y>203</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_17</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>load_file9()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>146</x>
+     <y>114</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>900</x>
+     <y>178</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_19</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>load_file10()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>150</x>
+     <y>305</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>900</x>
+     <y>405</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_21</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>load_file7_8()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>88</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>900</x>
+     <y>245</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>file1_save()</slot>
+  <slot>file5_save()</slot>
+  <slot>file2_save()</slot>
+  <slot>file3_save()</slot>
+  <slot>file6_save()</slot>
+  <slot>file4_save()</slot>
+  <slot>file9_save()</slot>
+  <slot>file10_save()</slot>
+  <slot>file7_8_save()</slot>
+  <slot>combine_all_files()</slot>
+  <slot>exit_data()</slot>
+  <slot>load_file1()</slot>
+  <slot>load_file2()</slot>
+  <slot>load_file5()</slot>
+  <slot>make_mesh()</slot>
+  <slot>load_file3()</slot>
+  <slot>load_file6()</slot>
+  <slot>load_file4()</slot>
+  <slot>load_file9()</slot>
+  <slot>load_file10()</slot>
+  <slot>load_file7_8()</slot>
+ </slots>
 </ui>
