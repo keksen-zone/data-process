@@ -15,9 +15,9 @@ from chaifen_test import *
 from cut2csv import *
 from average import *
 
-class MyWindow(QMainWindow, Ui_MainWindow):
+class GraphWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
-        super(MyWindow, self).__init__(parent)
+        super(GraphWindow, self).__init__(parent)
         self.setupUi(self)
 
         self.radioButton_2.setChecked(True)
@@ -200,6 +200,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    myWin = MyWindow()
+    myWin = GraphWindow()
     myWin.show()
     sys.exit(app.exec_())
