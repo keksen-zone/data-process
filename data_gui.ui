@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -1142,7 +1142,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_7">
        <attribute name="title">
@@ -1560,7 +1560,7 @@
         <property name="geometry">
          <rect>
           <x>390</x>
-          <y>30</y>
+          <y>40</y>
           <width>72</width>
           <height>15</height>
          </rect>
@@ -1793,7 +1793,7 @@
         <property name="geometry">
          <rect>
           <x>40</x>
-          <y>290</y>
+          <y>270</y>
           <width>181</width>
           <height>16</height>
          </rect>
@@ -1806,7 +1806,7 @@
         <property name="geometry">
          <rect>
           <x>230</x>
-          <y>290</y>
+          <y>270</y>
           <width>211</width>
           <height>22</height>
          </rect>
@@ -1831,7 +1831,7 @@
         <property name="geometry">
          <rect>
           <x>470</x>
-          <y>290</y>
+          <y>270</y>
           <width>111</width>
           <height>16</height>
          </rect>
@@ -1844,7 +1844,7 @@
         <property name="geometry">
          <rect>
           <x>600</x>
-          <y>290</y>
+          <y>270</y>
           <width>171</width>
           <height>22</height>
          </rect>
@@ -1940,6 +1940,19 @@
         </property>
         <property name="text">
          <string>保存</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_117">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>310</y>
+          <width>611</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>以下内容只在水合物分解模型选择了KINETIC时需要填写</string>
         </property>
        </widget>
       </widget>
