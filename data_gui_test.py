@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+import shutil
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from data_gui import *
 from PyQt5.QtWidgets import QFileDialog, QAction, QMessageBox
@@ -12,14 +13,6 @@ class DataWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
 
         self.radioButton_5.setChecked(True)
-        #
-        # self.actionPlot_Data.triggered.connect(self.open_Plot_Data)
-        # self.actionPlot_Coord.triggered.connect(self.open_Plot_Coord)
-        # self.actionSS_Time_Series.triggered.connect(self.open_SS_Time_Series)
-        # self.actionHydrate_Info.triggered.connect(self.open_Hydrate_Info)
-        #
-        # self.action.triggered.connect(self.data_extract)
-
 
     def load_file1(self):
         if (os.path.exists("file1.txt")):
@@ -43,20 +36,21 @@ class DataWindow(QMainWindow, Ui_MainWindow):
         else:
             QMessageBox.information(self, '打开失败', '未找到文件file4.txt', QMessageBox.Yes)
     def load_file5(self):
-        if (os.path.exists("file5.txt")):
+        if (os.path.exists("mesh.txt")):
             os.system("notepad file5.txt")
         else:
-            QMessageBox.information(self, '打开失败', '未找到文件file5.txt', QMessageBox.Yes)
+            QMessageBox.information(self, '打开失败', '未找到文件mesh.txt', QMessageBox.Yes)
     def load_file6(self):
         if (os.path.exists("file6.txt")):
             os.system("notepad file6.txt")
         else:
             QMessageBox.information(self, '打开失败', '未找到文件file6.txt', QMessageBox.Yes)
-    def load_file7_8(self):
+    def load_file7(self):
         if (os.path.exists("file7.txt")):
             os.system("notepad file7.txt")
         else:
             QMessageBox.information(self, '打开失败', '未找到文件file7.txt', QMessageBox.Yes)
+    def load_file8(self):
         if (os.path.exists("file8.txt")):
             os.system("notepad file8.txt")
         else:
@@ -111,30 +105,29 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             self.lineEdit_16.clear()
             self.lineEdit_17.clear()
 
+            self.plainTextEdit.clear()  # ————————————————！！！！假设每次添加后都立即修改并保存————————
         with open("dke1.txt","r") as dke1_read:
             dke1_text = dke1_read.readlines()
             print(dke1_text)
             for line in dke1_text:
                 line = line.replace("\n","")
                 self.plainTextEdit.appendPlainText(line)
-
     def dke_ano_add(self):
         with open("dke2.txt", "a") as dke2:
             fx = self.lineEdit_94.text()
             wgs = self.lineEdit_18.text()
             wgcd = self.lineEdit_19.text()
-            dke2.write("%s%10s%10s\n"%(fx,wgs,wgcd))
+            dke2.write("%s%8s%10s\n"%(fx,wgs,wgcd))
             self.lineEdit_18.clear()
             self.lineEdit_19.clear()
             self.lineEdit_94.clear()
-
+        self.plainTextEdit_3.clear()  # ————————————————！！！！假设每次添加后都立即修改并保存————————
         with open("dke2.txt","r") as dke2_read:
             dke2_text = dke2_read.readlines()
             print(dke2_text)
             for line in dke2_text:
                 line = line.replace("\n","")
                 self.plainTextEdit_3.appendPlainText(line)
-
     def dke_save(self):
         with open("dke1.txt","w") as dke1:
             text = self.plainTextEdit.toPlainText()
@@ -148,7 +141,11 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             print(text)
             dke2.write(text)
     def make_mesh(self):
+        shutil.copy("mesh.txt","mesh_in.txt")
+        os.rename("mesh_in.txt","mesh.dat")
         os.system("MeshMaker.exe<mesh.dat>out")
+        QMessageBox.information(self, '已完成', '网格已生成完成', QMessageBox.Yes)
+        shutil.copy("MESH", "file5.txt")
 
     def file1_save(self):
         with open("file1.txt",'w') as f1:
@@ -261,10 +258,11 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f4.write("%20s%20s%20s%20s\n"%(first,second,third,fourth))
 
     # ！！！------file5相关没有完成
+    # 柱坐标相关没有完成
     def file5_save(self):
         if (self.radioButton.isChecked()):
             print("笛卡尔坐标")
-            with open("file5_tmp.txt","w") as f5:
+            with open("mesh.txt","w") as f5:
                 f5.write("Input file for a test\n")
                 zdwgs = self.lineEdit_8.text()
                 f5.write("%s 100 5 'old'\n"%zdwgs)
@@ -277,15 +275,14 @@ class DataWindow(QMainWindow, Ui_MainWindow):
                 f5.write("XYZ\n")
                 f5.write("%10s\n"%("00."))
                 dke2 = open("dke2.txt", "r")
-                for line in dke1.readlines():
+                for line in dke2.readlines():
                     f5.write(line)
-                f5.write("ENDFI----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
-
+                f5.write("\nENDFI----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
+            QMessageBox.information(self, '已完成', '数据保存到mesh.txt\n生成网格前请打开生成文件以确认格式正确', QMessageBox.Yes)
         elif (self.radioButton_2.isChecked()):
             print("柱坐标")
-            with open("file5_tmp.txt","w") as f5:
+            with open("mesh.txt","w") as f5:
                 pass
-
 
     def file6_save(self):
         with open("file6.txt","w") as f6:
@@ -307,6 +304,8 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f7.write("")
         with open("file8.txt","w") as f8:
             f8.write("GENER\n")
+        QMessageBox.information(self, '已完成', '数据保存到file7_8.txt', QMessageBox.Yes)
+
     def file9_save(self):
         wgmc = self.lineEdit_51.text()
         kxd = self.lineEdit_52.text()
@@ -335,22 +334,29 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f10.write("ENDCY----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
         QMessageBox.information(self, '已完成', '数据成功保存在file10.txt', QMessageBox.Yes)
 
-
     def exit_data(self):
         self.close()
 
     def combine_all_files(self):
-        filenames = ['file1.txt', 'file2.txt', 'file3.txt', 'file4.txt', 'file5.txt', 'file6.txt', 'file7.txt',
-                     'file8.txt', 'file9.txt', 'file10.txt']
-        print(filenames)
-        file = open('output', 'w')
-        for f_n in filenames:
-            filepath = f_n
-            for line in open(filepath):
-                file.writelines(line)
-                print(line, end='')
-            file.write('\n')
-        file.close()
+        reply = QMessageBox.question(self, '即将进行文件的合并', '目录下是否已存在或已生成合并所需file 1~10', QMessageBox.Yes | QMessageBox.No,
+                                     QMessageBox.Yes)
+        if reply == QMessageBox.Yes:
+            #shutil.copy("MESH","file5.txt")
+            filenames = ['file1.txt', 'file2.txt', 'file3.txt', 'file4.txt', 'file5.txt', 'file6.txt', 'file7.txt',
+                         'file8.txt', 'file9.txt', 'file10.txt']
+            print(filenames)
+            file = open('output', 'w')
+            for f_n in filenames:
+                filepath = f_n
+                for line in open(filepath):
+                    file.writelines(line)
+                    print(line, end='')
+                file.write('\n')
+            file.close()
+            QMessageBox.information(self, '已完成', '所有数据已合并到output文件中', QMessageBox.Yes)
+        else:
+            pass
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

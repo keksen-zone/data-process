@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QGraphicsOpacityEffect
 from get_all_data import *
 from z_cut import *
 from y_cut import *
-from get_wg import *
+# from get_wg import *
 from three_dim_test import *
 from hqx import *
 from mv_test import *
@@ -81,7 +81,7 @@ class GraphWindow(QMainWindow, Ui_MainWindow):
     def data_extract(self):
         reply=QMessageBox.question(self,'即将对数据进行拆分','所需数据是否已经打开或已位于程序运行目录下',QMessageBox.Yes |QMessageBox.No,QMessageBox.Yes)
         if reply==QMessageBox.Yes:
-            print("go go go~")
+            print("拆分数据")
             chaifen()
             cut2csv()
             QMessageBox.information(self,'已完成','数据已按照时间拆分并命名在cutted2csv文件夹下\n程序退出后它们将不会被自动删除\n稍后也可以自行查看或处理',QMessageBox.Yes)
@@ -109,7 +109,10 @@ class GraphWindow(QMainWindow, Ui_MainWindow):
 
     def h3d(self):
         print("button hua 3d pressed")
-        x, y, z = get_wg()
+        # x, y, z = get_wg()
+        x = len(get_x())
+        y = len(get_y())
+        z = len(get_z())
         print(x, y, z)
         if self.radioButton_7.isChecked():
             print("3d 无网格线")
@@ -143,7 +146,10 @@ class GraphWindow(QMainWindow, Ui_MainWindow):
 
     def hpm(self):
         print("butt2 clicked")
-        x, y, z = get_wg()
+        # x, y, z = get_wg()
+        x = len(get_x())
+        y = len(get_y())
+        z = len(get_z())
         print(x, y, z)
         if self.radioButton_3.isChecked():
 
@@ -175,7 +181,10 @@ class GraphWindow(QMainWindow, Ui_MainWindow):
             # print(int(attri))
             if self.radioButton_6.isChecked():
                 print("剖面  有网格")
-                x, y, z = get_wg()
+                #x, y, z = get_wg()
+                x = len(get_x())
+                y = len(get_y())
+                z = len(get_z())
                 print(x, y, z)
                 str_attr = self.comboBox_3.currentText()
                 print("属性框的内容为：" + str_attr)
@@ -188,7 +197,10 @@ class GraphWindow(QMainWindow, Ui_MainWindow):
                       x, y, z)
             elif self.radioButton_5.isChecked():
                 print("剖面 无网格")
-                x, y, z = get_wg()
+                #x, y, z = get_wg()
+                x = len(get_x())
+                y = len(get_y())
+                z = len(get_z())
                 print(x, y, z)
                 str_attr = self.comboBox_3.currentText()
                 print("属性框的内容为：" + str_attr)
