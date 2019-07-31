@@ -52,3 +52,6 @@ def get_z():
     for tmp in z:
         z_file.write(tmp + '\n')
     return z
+
+# x = get_x()
+# print(len(x))

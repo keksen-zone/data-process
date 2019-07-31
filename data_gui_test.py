@@ -22,23 +22,133 @@ class DataWindow(QMainWindow, Ui_MainWindow):
 
 
     def load_file1(self):
-        pass
+        if (os.path.exists("file1.txt")):
+            print("file1 founded")
+            os.system("notepad file1.txt")
+        else:
+            QMessageBox.information(self, '打开失败', '未找到文件file1.txt', QMessageBox.Yes)
     def load_file2(self):
-        pass
+        if (os.path.exists("file2.txt")):
+            os.system("notepad file2.txt")
+        else:
+            QMessageBox.information(self, '打开失败', '未找到文件file2.txt', QMessageBox.Yes)
     def load_file3(self):
-        pass
+        if (os.path.exists("file3.txt")):
+            os.system("notepad file3.txt")
+        else:
+            QMessageBox.information(self, '打开失败', '未找到文件file3.txt', QMessageBox.Yes)
     def load_file4(self):
-        pass
+        if (os.path.exists("file4.txt")):
+            os.system("notepad file4.txt")
+        else:
+            QMessageBox.information(self, '打开失败', '未找到文件file4.txt', QMessageBox.Yes)
     def load_file5(self):
-        pass
+        if (os.path.exists("file5.txt")):
+            os.system("notepad file5.txt")
+        else:
+            QMessageBox.information(self, '打开失败', '未找到文件file5.txt', QMessageBox.Yes)
     def load_file6(self):
-        pass
+        if (os.path.exists("file6.txt")):
+            os.system("notepad file6.txt")
+        else:
+            QMessageBox.information(self, '打开失败', '未找到文件file6.txt', QMessageBox.Yes)
     def load_file7_8(self):
-        pass
+        if (os.path.exists("file7.txt")):
+            os.system("notepad file7.txt")
+        else:
+            QMessageBox.information(self, '打开失败', '未找到文件file7.txt', QMessageBox.Yes)
+        if (os.path.exists("file8.txt")):
+            os.system("notepad file8.txt")
+        else:
+            QMessageBox.information(self, '打开失败', '未找到文件file8.txt', QMessageBox.Yes)
     def load_file9(self):
-        os.system("notepad file9.txt")
+        if (os.path.exists("file9.txt")):
+            os.system("notepad file9.txt")
+        else:
+            QMessageBox.information(self, '打开失败', '未找到文件file9.txt', QMessageBox.Yes)
     def load_file10(self):
-        os.system("notepad file10.txt")
+        if (os.path.exists("file10.txt")):
+            os.system("notepad file10.txt")
+        else:
+            QMessageBox.information(self, '打开失败', '未找到文件file10.txt', QMessageBox.Yes)
+
+    # 注意：对于柱坐标的处理尚未完成
+    def zzb_add(self):
+        with open("zzb1.txt","a") as zzb1:
+            qymc = self.lineEdit_21.text()
+            rmin = self.lineEdit_25.text()
+            rmax = self.lineEdit_24.text()
+            zmin = self.lineEdit_26.text()
+            zmax = self.lineEdit_27.text()
+            zzb1.write("'%s'\n"%qymc)
+            zzb1.write("'cylindrical'   'm'\n")
+            zzb1.write("%s %s %s %s\n"%(rmin,rmax,zmin,zmax))
+    def zzb_ano_add(self):
+        with open("zzb2.txt","a") as zzb2:
+            pass
+    def zzb_save(self):
+        pass
+    def zzb_ano_save(self):
+        pass
+
+    def dke_add(self):
+        with open("dke1.txt","a") as dke1:
+            qymc = self.lineEdit_11.text()
+            xmin = self.lineEdit_12.text()
+            xmax = self.lineEdit_13.text()
+            ymin = self.lineEdit_14.text()
+            ymax = self.lineEdit_15.text()
+            zmin = self.lineEdit_16.text()
+            zmax = self.lineEdit_17.text()
+            dke1.write("'%s'\n"%qymc)
+            dke1.write("'cartesian'     'm'\n")
+            dke1.write("%s %s %s %s %s %s\n"%(xmin,xmax,ymin,ymax,zmin,zmax))
+            self.lineEdit_11.clear()
+            self.lineEdit_12.clear()
+            self.lineEdit_13.clear()
+            self.lineEdit_14.clear()
+            self.lineEdit_15.clear()
+            self.lineEdit_16.clear()
+            self.lineEdit_17.clear()
+
+        with open("dke1.txt","r") as dke1_read:
+            dke1_text = dke1_read.readlines()
+            print(dke1_text)
+            for line in dke1_text:
+                line = line.replace("\n","")
+                self.plainTextEdit.appendPlainText(line)
+
+    def dke_ano_add(self):
+        with open("dke2.txt", "a") as dke2:
+            fx = self.lineEdit_94.text()
+            wgs = self.lineEdit_18.text()
+            wgcd = self.lineEdit_19.text()
+            dke2.write("%s%10s%10s\n"%(fx,wgs,wgcd))
+            self.lineEdit_18.clear()
+            self.lineEdit_19.clear()
+            self.lineEdit_94.clear()
+
+        with open("dke2.txt","r") as dke2_read:
+            dke2_text = dke2_read.readlines()
+            print(dke2_text)
+            for line in dke2_text:
+                line = line.replace("\n","")
+                self.plainTextEdit_3.appendPlainText(line)
+
+    def dke_save(self):
+        with open("dke1.txt","w") as dke1:
+            text = self.plainTextEdit.toPlainText()
+            print("save test:")
+            print(text)
+            dke1.write(text)
+    def dke_ano_save(self):
+        with open("dke2.txt","w") as dke2:
+            text = self.plainTextEdit_3.toPlainText()
+            print("save test:")
+            print(text)
+            dke2.write(text)
+    def make_mesh(self):
+        os.system("MeshMaker.exe<mesh.dat>out")
 
     def file1_save(self):
         with open("file1.txt",'w') as f1:
@@ -152,15 +262,30 @@ class DataWindow(QMainWindow, Ui_MainWindow):
 
     # ！！！------file5相关没有完成
     def file5_save(self):
-        # 等会再回来写7.30
-        # 没有考虑好这部分应该怎么处理
         if (self.radioButton.isChecked()):
             print("笛卡尔坐标")
             with open("file5_tmp.txt","w") as f5:
                 f5.write("Input file for a test\n")
-                f5.write("")
+                zdwgs = self.lineEdit_8.text()
+                f5.write("%s 100 5 'old'\n"%zdwgs)
+                f5.write("Regions\n")
+                qy = self.lineEdit_10.text()
+                f5.write("%s\n"%qy)
+                dke1 = open("dke1.txt","r")
+                for line in dke1.readlines():
+                    f5.write(line)
+                f5.write("XYZ\n")
+                f5.write("%10s\n"%("00."))
+                dke2 = open("dke2.txt", "r")
+                for line in dke1.readlines():
+                    f5.write(line)
+                f5.write("ENDFI----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
+
         elif (self.radioButton_2.isChecked()):
             print("柱坐标")
+            with open("file5_tmp.txt","w") as f5:
+                pass
+
 
     def file6_save(self):
         with open("file6.txt","w") as f6:
@@ -209,12 +334,23 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f10.write("%20s%20s%20s%20s\n"%(zbl1,zbl2,zbl3,zbl4))
             f10.write("ENDCY----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
         QMessageBox.information(self, '已完成', '数据成功保存在file10.txt', QMessageBox.Yes)
-    def make_mesh(self):
-        os.system("")
+
+
     def exit_data(self):
-        pass
+        self.close()
+
     def combine_all_files(self):
-        pass
+        filenames = ['file1.txt', 'file2.txt', 'file3.txt', 'file4.txt', 'file5.txt', 'file6.txt', 'file7.txt',
+                     'file8.txt', 'file9.txt', 'file10.txt']
+        print(filenames)
+        file = open('output', 'w')
+        for f_n in filenames:
+            filepath = f_n
+            for line in open(filepath):
+                file.writelines(line)
+                print(line, end='')
+            file.write('\n')
+        file.close()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
