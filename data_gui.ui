@@ -1117,7 +1117,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_7">
        <attribute name="title">
@@ -1503,13 +1503,13 @@
          <string>保存</string>
         </property>
        </widget>
-       <widget class="QTableView" name="tableView_9">
+       <widget class="QPlainTextEdit" name="plainTextEdit_5">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>360</y>
-          <width>821</width>
-          <height>121</height>
+          <x>30</x>
+          <y>370</y>
+          <width>831</width>
+          <height>111</height>
          </rect>
         </property>
        </widget>
@@ -2139,7 +2139,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_10">
        <attribute name="title">
@@ -2855,8 +2855,8 @@
      <widget class="QLabel" name="label_75">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>60</y>
+        <x>280</x>
+        <y>70</y>
         <width>81</width>
         <height>16</height>
        </rect>
@@ -2881,8 +2881,8 @@
      <widget class="QRadioButton" name="radioButton_3">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>60</y>
+        <x>380</x>
+        <y>70</y>
         <width>61</width>
         <height>19</height>
        </rect>
@@ -2894,8 +2894,8 @@
      <widget class="QRadioButton" name="radioButton_4">
       <property name="geometry">
        <rect>
-        <x>350</x>
-        <y>60</y>
+        <x>620</x>
+        <y>70</y>
         <width>61</width>
         <height>19</height>
        </rect>
@@ -2907,8 +2907,8 @@
      <widget class="QLabel" name="label_76">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>100</y>
+        <x>80</x>
+        <y>110</y>
         <width>72</width>
         <height>15</height>
        </rect>
@@ -2920,8 +2920,8 @@
      <widget class="QLabel" name="label_92">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>130</y>
+        <x>80</x>
+        <y>140</y>
         <width>72</width>
         <height>15</height>
        </rect>
@@ -2933,8 +2933,8 @@
      <widget class="QLineEdit" name="lineEdit_85">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>100</y>
+        <x>160</x>
+        <y>110</y>
         <width>113</width>
         <height>21</height>
        </rect>
@@ -2943,31 +2943,8 @@
      <widget class="QLineEdit" name="lineEdit_86">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>130</y>
-        <width>113</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_105">
-      <property name="geometry">
-       <rect>
-        <x>390</x>
-        <y>100</y>
-        <width>72</width>
-        <height>15</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>界面流动</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_87">
-      <property name="geometry">
-       <rect>
-        <x>470</x>
-        <y>100</y>
+        <x>160</x>
+        <y>140</y>
         <width>113</width>
         <height>21</height>
        </rect>
@@ -2976,8 +2953,8 @@
      <widget class="QLabel" name="label_106">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>170</y>
+        <x>490</x>
+        <y>70</y>
         <width>72</width>
         <height>15</height>
        </rect>
@@ -2989,8 +2966,8 @@
      <widget class="QLabel" name="label_107">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>200</y>
+        <x>380</x>
+        <y>100</y>
         <width>71</width>
         <height>20</height>
        </rect>
@@ -3002,8 +2979,8 @@
      <widget class="QLabel" name="label_108">
       <property name="geometry">
        <rect>
-        <x>130</x>
-        <y>230</y>
+        <x>370</x>
+        <y>130</y>
         <width>81</width>
         <height>16</height>
        </rect>
@@ -3015,8 +2992,8 @@
      <widget class="QLabel" name="label_109">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>260</y>
+        <x>340</x>
+        <y>160</y>
         <width>111</width>
         <height>20</height>
        </rect>
@@ -3028,8 +3005,8 @@
      <widget class="QLineEdit" name="lineEdit_88">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>200</y>
+        <x>460</x>
+        <y>100</y>
         <width>113</width>
         <height>21</height>
        </rect>
@@ -3038,8 +3015,8 @@
      <widget class="QLineEdit" name="lineEdit_89">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>230</y>
+        <x>460</x>
+        <y>130</y>
         <width>113</width>
         <height>21</height>
        </rect>
@@ -3048,8 +3025,8 @@
      <widget class="QLineEdit" name="lineEdit_90">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>260</y>
+        <x>460</x>
+        <y>160</y>
         <width>113</width>
         <height>21</height>
        </rect>
@@ -3058,8 +3035,8 @@
      <widget class="QLabel" name="label_110">
       <property name="geometry">
        <rect>
-        <x>390</x>
-        <y>170</y>
+        <x>720</x>
+        <y>70</y>
         <width>72</width>
         <height>15</height>
        </rect>
@@ -3071,8 +3048,8 @@
      <widget class="QLabel" name="label_111">
       <property name="geometry">
        <rect>
-        <x>420</x>
-        <y>200</y>
+        <x>610</x>
+        <y>100</y>
         <width>72</width>
         <height>15</height>
        </rect>
@@ -3084,8 +3061,8 @@
      <widget class="QLabel" name="label_112">
       <property name="geometry">
        <rect>
-        <x>420</x>
-        <y>230</y>
+        <x>610</x>
+        <y>130</y>
         <width>72</width>
         <height>15</height>
        </rect>
@@ -3097,8 +3074,8 @@
      <widget class="QLabel" name="label_113">
       <property name="geometry">
        <rect>
-        <x>430</x>
-        <y>260</y>
+        <x>620</x>
+        <y>160</y>
         <width>41</width>
         <height>16</height>
        </rect>
@@ -3110,8 +3087,8 @@
      <widget class="QLineEdit" name="lineEdit_91">
       <property name="geometry">
        <rect>
-        <x>500</x>
-        <y>200</y>
+        <x>690</x>
+        <y>100</y>
         <width>113</width>
         <height>21</height>
        </rect>
@@ -3120,8 +3097,8 @@
      <widget class="QLineEdit" name="lineEdit_92">
       <property name="geometry">
        <rect>
-        <x>500</x>
-        <y>230</y>
+        <x>690</x>
+        <y>130</y>
         <width>113</width>
         <height>21</height>
        </rect>
@@ -3130,8 +3107,8 @@
      <widget class="QLineEdit" name="lineEdit_93">
       <property name="geometry">
        <rect>
-        <x>500</x>
-        <y>260</y>
+        <x>690</x>
+        <y>160</y>
         <width>113</width>
         <height>21</height>
        </rect>
@@ -3141,7 +3118,7 @@
       <property name="geometry">
        <rect>
         <x>350</x>
-        <y>340</y>
+        <y>420</y>
         <width>93</width>
         <height>28</height>
        </rect>
@@ -3161,6 +3138,65 @@
       </property>
       <property name="text">
        <string>打开GENER</string>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="plainTextEdit_6">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>250</y>
+        <width>221</width>
+        <height>87</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="plainTextEdit_7">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>250</y>
+        <width>441</width>
+        <height>87</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_32">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>350</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>保存修改</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_33">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>350</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>保存修改</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_34">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>200</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>添加</string>
       </property>
      </widget>
     </widget>
@@ -3347,7 +3383,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>417</x>
-     <y>404</y>
+     <y>484</y>
     </hint>
     <hint type="destinationlabel">
      <x>714</x>
@@ -3691,6 +3727,70 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_27</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>rock_add()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>391</x>
+     <y>416</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>925</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_32</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>coft_save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>151</x>
+     <y>418</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>942</x>
+     <y>302</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_33</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>gener_save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>585</x>
+     <y>415</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>935</x>
+     <y>363</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_34</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>add_file7_8()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>333</x>
+     <y>264</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>939</x>
+     <y>462</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>file1_save()</slot>
@@ -3723,5 +3823,9 @@
   <slot>zzb_ano_save()</slot>
   <slot>load_file7()</slot>
   <slot>load_file8()</slot>
+  <slot>rock_add()</slot>
+  <slot>coft_save()</slot>
+  <slot>gener_save()</slot>
+  <slot>add_file7_8()</slot>
  </slots>
 </ui>

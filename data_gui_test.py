@@ -77,11 +77,28 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             zzb1.write("'%s'\n"%qymc)
             zzb1.write("'cylindrical'   'm'\n")
             zzb1.write("%s %s %s %s\n"%(rmin,rmax,zmin,zmax))
+            self.lineEdit_21.clear()
+            self.lineEdit_25.clear()
+            self.lineEdit_24.clear()
+            self.lineEdit_26.clear()
+            self.lineEdit_27.clear()
+
+            self.plainTextEdit_2.clear()
+            with open("zzb1.txt", "r") as zzb1_read:
+                zzb1_text = zzb1_read.readlines()
+                print(zzb1_text)
+                for line in zzb1_text:
+                    line = line.replace("\n", "")
+                    self.plainTextEdit_2.appendPlainText(line)
     def zzb_ano_add(self):
         with open("zzb2.txt","a") as zzb2:
             pass
     def zzb_save(self):
-        pass
+        with open("zzb1.txt","w") as dke1:
+            text = self.plainTextEdit_2.toPlainText()
+            print("save test:")
+            print(text)
+            dke1.write(text)
     def zzb_ano_save(self):
         pass
 
@@ -172,10 +189,11 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f1.write("%10s%10s%2s\n"%(zdwgs,zdljs,"5"))
             f1.write("%5s\n"%zdyhxs)
             f1.write("%5s\n"%zdjzs)
+        QMessageBox.information(self, '已完成', '保存成功', QMessageBox.Yes)
 
-    def file2_save(self):
-        with open("file2.txt","w") as f2:
-            ysmc=self.lineEdit_61.text()
+    def rock_add(self):
+        with open("rock.txt","a") as rock:
+            ysmc = self.lineEdit_61.text()
             md = self.lineEdit_62.text()
             kxd = self.lineEdit_63.text()
             ki = self.lineEdit_64.text()
@@ -183,19 +201,45 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             kk = self.lineEdit_66.text()
             bhltdrxs = self.lineEdit_67.text()
             brr = self.lineEdit_68.text()
-            nad=""
+            nad = ""
             kxysxs = self.lineEdit_69.text()
             wbhlt = self.lineEdit_70.text()
             ljkxd = self.lineEdit_71.text()
             stljdzs = self.lineEdit_72.text()
             if (self.radioButton_5.isChecked()):
-                nad="1"
+                nad = "1"
             elif (self.radioButton_6.isChecked()):
-                nad="0"
-            f2.write("ROCKS----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
-            f2.write("%5s%5s%10s%10s%10s%10s%10s%10s%10s\n"%(ysmc,nad,md,kxd,ki,kj,kk,bhltdrxs,brr))
+                nad = "0"
+            rock.write("%5s%5s%10s%10s%10s%10s%10s%10s%10s\n" % (ysmc, nad, md, kxd, ki, kj, kk, bhltdrxs, brr))
             if (self.radioButton_5.isChecked()):
-                f2.write("%10s%20s%40s%10s\n"%(kxysxs,wbhlt,ljkxd,stljdzs))
+                rock.write("%10s%20s%40s%10s\n" % (kxysxs, wbhlt, ljkxd, stljdzs))
+
+        self.lineEdit_61.clear()
+        self.lineEdit_62.clear()
+        self.lineEdit_63.clear()
+        self.lineEdit_64.clear()
+        self.lineEdit_65.clear()
+        self.lineEdit_66.clear()
+        self.lineEdit_67.clear()
+        self.lineEdit_68.clear()
+        self.lineEdit_69.clear()
+        self.lineEdit_70.clear()
+        self.lineEdit_71.clear()
+        self.lineEdit_72.clear()
+        self.plainTextEdit_5.clear()
+
+        with open("rock.txt","r") as rock_read:
+            rock_text = rock_read.readlines()
+            for line in rock_text:
+                line = line.replace("\n","")
+                self.plainTextEdit_5.appendPlainText(line)
+
+    def file2_save(self):
+        with open("file2.txt","w") as f2:
+            f2.write("ROCKS----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
+            rock = open("rock.txt", "r")
+            for line in rock.readlines():
+                f2.write(line)
 
     def file3_save(self):
         with open("file3.txt","w") as f3:
@@ -282,7 +326,30 @@ class DataWindow(QMainWindow, Ui_MainWindow):
         elif (self.radioButton_2.isChecked()):
             print("柱坐标")
             with open("mesh.txt","w") as f5:
-                pass
+                f5.write("Input file for a test\n")
+                zdwgs = self.lineEdit_22.text()
+                zdljs = self.lineEdit_23.text()
+                fq = self.lineEdit_20.text()
+                f5.write("%s %s 5 'old'\n"%(zdwgs,zdljs))
+                f5.write("Regions\n")
+                f5.write("%s\n" % fq)
+
+                zzb1 = open("zzb1.txt", "r")
+                for line in zzb1.readlines():
+                    f5.write(line)
+                f5.write("RZ2DL\nRADII\n")
+                f5.write("    2\n")
+                f5.write("    0         0.5e-1")
+
+                zzb2 = open("zzb2.txt", "r")
+                for line in zzb2.readlines():
+                    f5.write(line)
+
+                zzb3 = open("zzb3.txt", "r") # 用来放layer相关的部分数据文件
+                for line in zzb3.readlines():
+                    f5.write(line)
+                f5.write("\nENDFI----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
+            QMessageBox.information(self, '已完成', '数据保存到mesh.txt\n生成网格前请打开生成文件以确认格式正确', QMessageBox.Yes)
 
     def file6_save(self):
         with open("file6.txt","w") as f6:
@@ -297,14 +364,69 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f6.write("%5s%15s%10s%10s%10s\n"%("6",sfs,"0.05",sfq,xsxs))
             f6.write("%5s%15.3f%10s%10s%10s\n"%("8",float(sfs)-0.01,csn,csa,"11"))
 
-    # ！！！--------file7、8部分尚未完成，对应关系？运行逻辑？
+    def add_file_7_8(self):
+        mc = self.lineEdit_85.text()
+        jhbm = self.lineEdit_86.text()
+        scfs = self.lineEdit_88.text()
+        scjzs = self.lineEdit_89.text()
+        scjjdyl = self.lineEdit_90.text()
+        zrfs = self.lineEdit_91.text()
+        zrsl = self.lineEdit_92.text()
+        rh = self.lineEdit_93.text()
+        with open("coft.txt","a") as coft:
+            coft.write(jhbm)
+            coft.write("\n")
+        self.lineEdit_85.clear()
+        self.lineEdit_86.clear()
+        self.lineEdit_88.clear()
+        self.lineEdit_89.clear()
+        self.lineEdit_90.clear()
+        self.lineEdit_91.clear()
+        self.lineEdit_92.clear()
+        self.lineEdit_93.clear()
+        self.plainTextEdit_6.clear()
+        self.plainTextEdit_7.clear()
+        with open("gener.txt","a") as gener:
+            if (self.radioButton_3.isChecked()):
+                gener.write("%5s%5s%29s%11s%10s\n"%(mc,jhbm,scfs,scjzs,scjjdyl))
+            elif (self.radioButton_4.isChecked()):
+                gener.write("%5s%5s%29s%11s%10s\n"%(mc,jhbm,zrfs,zrsl,rh))
+        with open("coft.txt","r") as coft_read:
+            coft_text = coft_read.readlines()
+            for line in coft_text:
+                line = line.replace("\n","")
+                self.plainTextEdit_6.appendPlainText(line)
+        with open("gener.txt","r") as gener_read:
+            gener_text = gener_read.readlines()
+            for line in gener_text:
+                line = line.replace("\n","")
+                self.plainTextEdit_7.appendPlainText(line)
+
+    def coft_save(self):
+        with open("coft.txt","w") as coft:
+            text = self.plainTextEdit_6.toPlainText()
+            print("save test:")
+            print(text)
+            coft.write(text)
+    def gener_save(self):
+        with open("gener.txt", "w") as gener:
+            text = self.plainTextEdit_7.toPlainText()
+            print("save test:")
+            print(text)
+            gener.write(text)
     def file7_8_save(self):
         with open("file7.txt","w") as f7:
             f7.write("COFT-----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
-            f7.write("")
+            f7.write("SS_Time_Series\n")
+            coft = open("coft.txt", "r")
+            for line in coft.readlines():
+                f7.write(line)
         with open("file8.txt","w") as f8:
             f8.write("GENER\n")
-        QMessageBox.information(self, '已完成', '数据保存到file7_8.txt', QMessageBox.Yes)
+            gener = open("gener.txt", "r")
+            for line in gener.readlines():
+                f8.write(line)
+        QMessageBox.information(self, '已完成', '数据保存到file7.txt和file8.txt', QMessageBox.Yes)
 
     def file9_save(self):
         wgmc = self.lineEdit_51.text()

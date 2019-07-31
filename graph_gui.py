@@ -22,7 +22,7 @@ class Ui_MainWindow(object):
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.tab)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 0, 392, 151))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 392, 151))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
