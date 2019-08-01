@@ -21,6 +21,9 @@ def cut2csv():
             w.close()
         f.close()
 
+        # 修改：直接删除cutted中所有txt内容
+        os.remove(filePath+file)
+
     txtfile = os.listdir(csvfilePath)
     print(txtfile)
     for file in txtfile:

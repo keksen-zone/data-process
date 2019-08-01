@@ -82,23 +82,55 @@ class GraphWindow(QMainWindow, Ui_MainWindow):
         reply=QMessageBox.question(self,'即将对数据进行拆分','所需数据是否已经打开或已位于程序运行目录下',QMessageBox.Yes |QMessageBox.No,QMessageBox.Yes)
         if reply==QMessageBox.Yes:
             print("拆分数据")
-            chaifen()
-            cut2csv()
-            QMessageBox.information(self,'已完成','数据已按照时间拆分并命名在cutted2csv文件夹下\n程序退出后它们将不会被自动删除\n稍后也可以自行查看或处理',QMessageBox.Yes)
+            if (os.path.exists("cutted/")):
+                pass
+            else:
+                os.mkdir("cutted/")
+            if (os.path.exists("cutted2csv/")):
+                pass
+            else:
+                os.mkdir("cutted2csv/")
+
+            # filelist_txt = os.listdir("cutted/")
+            filelist_csv = os.listdir("cutted2csv/")
+            #print(filelist)
+            if (len(filelist_csv) > 0):
+                reply = QMessageBox.question(self, '目标文件夹不为空',
+                                             '检测到拆分目标文件夹中有残留内容\n这可能是程序上次运行的输出，可以直接使用这些数据绘图或手动将这些内容删除\n若继续拆分，会造成两次数据的混合\n仍然要继续吗',
+                                             QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
+                if reply == QMessageBox.Yes:
+                    chaifen()
+                    cut2csv()
+                    QMessageBox.information(self, '已完成', '数据已按照时间拆分并命名在cutted2csv文件夹下\n程序退出后它们将不会被自动删除\n稍后也可以自行查看或处理',
+                                            QMessageBox.Yes)
+                else:
+                    pass
+            else:
+                chaifen()
+                cut2csv()
+                QMessageBox.information(self, '已完成', '数据已按照时间拆分并命名在cutted2csv文件夹下\n程序退出后它们将不会被自动删除\n稍后也可以自行查看或处理',
+                                        QMessageBox.Yes)
+            # os.system("ren output output.txt")
+
         else:
             pass
     def data_exist(self):
-        times = get_times()
-        # attri = {0:'第一列', 1:'第二列', 2:'第三列', 3:'第四列', 4:'第五列',5: '第六列', 6:'第七列',7: '第八列',8: '第九列'}
-        ceng = get_z()
-        pou = get_y()
-        self.comboBox_2.addItems(times)
-        self.comboBox_6.addItems(times)
-        self.comboBox_3.addItems(["0:P", "1:T", "2:SH", "3:SW", "4:SG","5:SI", "6:C_Inhib", "7:Krg", "8:Krw"])
-        self.comboBox_7.addItems(["0:P", "1:T", "2:SH", "3:SW", "4:SG", "5:SI", "6:C_Inhib", "7:Krg", "8:Krw"])
-        self.comboBox_4.addItems(ceng)
-        self.comboBox_5.addItems(pou)
-        self.comboBox_9.addItems(["0:P", "1:T", "2:SH", "3:SW", "4:SG", "5:SI", "6:C_Inhib", "7:Krg", "8:Krw"])
+        reply = QMessageBox.question(self, '确认', '所需数据已切分完成且位于cutted2csv文件夹下', QMessageBox.Yes | QMessageBox.No,
+                                     QMessageBox.Yes)
+        if reply == QMessageBox.Yes:
+            times = get_times()
+            # attri = {0:'第一列', 1:'第二列', 2:'第三列', 3:'第四列', 4:'第五列',5: '第六列', 6:'第七列',7: '第八列',8: '第九列'}
+            ceng = get_z()
+            pou = get_y()
+            self.comboBox_2.addItems(times)
+            self.comboBox_6.addItems(times)
+            self.comboBox_3.addItems(["0:P", "1:T", "2:SH", "3:SW", "4:SG","5:SI", "6:C_Inhib", "7:Krg", "8:Krw"])
+            self.comboBox_7.addItems(["0:P", "1:T", "2:SH", "3:SW", "4:SG", "5:SI", "6:C_Inhib", "7:Krg", "8:Krw"])
+            self.comboBox_4.addItems(ceng)
+            self.comboBox_5.addItems(pou)
+            self.comboBox_9.addItems(["0:P", "1:T", "2:SH", "3:SW", "4:SG", "5:SI", "6:C_Inhib", "7:Krg", "8:Krw"])
+        else:
+            pass
 
     def hpj(self):
         str_attr = self.comboBox_9.currentText()

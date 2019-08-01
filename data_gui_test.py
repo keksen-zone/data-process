@@ -161,7 +161,7 @@ class DataWindow(QMainWindow, Ui_MainWindow):
         shutil.copy("mesh.txt","mesh_in.txt")
         os.rename("mesh_in.txt","mesh.dat")
         os.system("MeshMaker.exe<mesh.dat>out")
-        QMessageBox.information(self, '已完成', '网格已生成完成', QMessageBox.Yes)
+        QMessageBox.information(self, '已完成', '网格已生成完成\n建议打开输出文件以确认', QMessageBox.Yes)
         shutil.copy("MESH", "file5.txt")
 
     def file1_save(self):
@@ -189,7 +189,7 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f1.write("%10s%10s%2s\n"%(zdwgs,zdljs,"5"))
             f1.write("%5s\n"%zdyhxs)
             f1.write("%5s\n"%zdjzs)
-        QMessageBox.information(self, '已完成', '保存成功', QMessageBox.Yes)
+        QMessageBox.information(self, '已完成', '数据保存到file6.txt\n建议打开生成文件以确认', QMessageBox.Yes)
 
     def rock_add(self):
         with open("rock.txt","a") as rock:
@@ -240,6 +240,8 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             rock = open("rock.txt", "r")
             for line in rock.readlines():
                 f2.write(line)
+        os.remove("rock.txt")
+        QMessageBox.information(self, '已完成', '数据保存到file2.txt\n建议打开生成文件以确认', QMessageBox.Yes)
 
     def file3_save(self):
         with open("file3.txt","w") as f3:
@@ -279,6 +281,7 @@ class DataWindow(QMainWindow, Ui_MainWindow):
                 gysl = self.lineEdit_31.text()
                 bmyz = self.lineEdit_32.text()
                 f3.write("%5s%8s%8s\n"%(hhn,gysl,bmyz))
+        QMessageBox.information(self, '已完成', '数据保存到file3.txt\n建议打开生成文件以确认', QMessageBox.Yes)
 
     def file4_save(self):
         with open("file4.txt","w") as f4:
@@ -300,6 +303,7 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f4.write("%10s%10s%10s%10s%20s\n"%(start,end,min_time,max_time,"9.8060"))
             f4.write("%10s%10s%40s%15s\n"%("1.E-5","1.E00","1.0e-8",init))
             f4.write("%20s%20s%20s%20s\n"%(first,second,third,fourth))
+        QMessageBox.information(self, '已完成', '数据保存到file4.txt\n建议打开生成文件以确认', QMessageBox.Yes)
 
     # ！！！------file5相关没有完成
     # 柱坐标相关没有完成
@@ -323,6 +327,8 @@ class DataWindow(QMainWindow, Ui_MainWindow):
                     f5.write(line)
                 f5.write("\nENDFI----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
             QMessageBox.information(self, '已完成', '数据保存到mesh.txt\n生成网格前请打开生成文件以确认格式正确', QMessageBox.Yes)
+            os.remove("dke1.txt")
+            os.remove("dke2.txt")
         elif (self.radioButton_2.isChecked()):
             print("柱坐标")
             with open("mesh.txt","w") as f5:
@@ -363,6 +369,7 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f6.write("RPCAP----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
             f6.write("%5s%15s%10s%10s%10s\n"%("6",sfs,"0.05",sfq,xsxs))
             f6.write("%5s%15.3f%10s%10s%10s\n"%("8",float(sfs)-0.01,csn,csa,"11"))
+        QMessageBox.information(self, '已完成', '数据保存到file6.txt\n建议打开生成文件以确认', QMessageBox.Yes)
 
     def add_file_7_8(self):
         mc = self.lineEdit_85.text()
@@ -426,7 +433,9 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             gener = open("gener.txt", "r")
             for line in gener.readlines():
                 f8.write(line)
-        QMessageBox.information(self, '已完成', '数据保存到file7.txt和file8.txt', QMessageBox.Yes)
+        QMessageBox.information(self, '已完成', '数据保存到file7.txt和file8.txt\n建议打开生成文件以确认', QMessageBox.Yes)
+        os.remove("coft.txt")
+        os.remove("gener.txt")
 
     def file9_save(self):
         wgmc = self.lineEdit_51.text()
@@ -440,7 +449,7 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f9.write("INCON----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
             f9.write("%5s%25s%5s\n"%(wgmc,kxd,cszt))
             f9.write("%20s%20s%20s%20s\n"%(zbl1,zbl2,zbl3,zbl4))
-        QMessageBox.information(self, '已完成', '数据成功保存在file9.txt',QMessageBox.Yes)
+        QMessageBox.information(self, '已完成', '数据成功保存在file9.txt\n建议打开生成文件以确认',QMessageBox.Yes)
 
     def file10_save(self):
         wgmc = self.lineEdit_73.text()
@@ -454,7 +463,7 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f10.write("%5s%5s\n"%(wgmc,cszt))
             f10.write("%20s%20s%20s%20s\n"%(zbl1,zbl2,zbl3,zbl4))
             f10.write("ENDCY----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
-        QMessageBox.information(self, '已完成', '数据成功保存在file10.txt', QMessageBox.Yes)
+        QMessageBox.information(self, '已完成', '数据成功保存在file10.txt\n建议打开生成文件以确认', QMessageBox.Yes)
 
     def exit_data(self):
         self.close()
@@ -467,7 +476,7 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             filenames = ['file1.txt', 'file2.txt', 'file3.txt', 'file4.txt', 'file5.txt', 'file6.txt', 'file7.txt',
                          'file8.txt', 'file9.txt', 'file10.txt']
             print(filenames)
-            file = open('output', 'w')
+            file = open('input', 'w')
             for f_n in filenames:
                 filepath = f_n
                 for line in open(filepath):
@@ -475,7 +484,7 @@ class DataWindow(QMainWindow, Ui_MainWindow):
                     print(line, end='')
                 file.write('\n')
             file.close()
-            QMessageBox.information(self, '已完成', '所有数据已合并到output文件中', QMessageBox.Yes)
+            QMessageBox.information(self, '已完成', '所有数据已合并到input文件中\n在进行下一步的操作前，强烈建议打开input文件以确认文件格式', QMessageBox.Yes)
         else:
             pass
 
