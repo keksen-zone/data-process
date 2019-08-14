@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1081, 659)
+        MainWindow.resize(900, 608)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
@@ -846,15 +846,15 @@ class Ui_MainWindow(object):
         self.tab_12 = QtWidgets.QWidget()
         self.tab_12.setObjectName("tab_12")
         self.pushButton_23 = QtWidgets.QPushButton(self.tab_12)
-        self.pushButton_23.setGeometry(QtCore.QRect(200, 110, 93, 28))
+        self.pushButton_23.setGeometry(QtCore.QRect(200, 110, 93, 41))
         self.pushButton_23.setObjectName("pushButton_23")
         self.pushButton_24 = QtWidgets.QPushButton(self.tab_12)
-        self.pushButton_24.setGeometry(QtCore.QRect(510, 110, 93, 28))
+        self.pushButton_24.setGeometry(QtCore.QRect(510, 110, 93, 41))
         self.pushButton_24.setObjectName("pushButton_24")
         self.tabWidget.addTab(self.tab_12, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1081, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 900, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -862,10 +862,10 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(3)
-        self.tabWidget_2.setCurrentIndex(1)
-        self.tabWidget_3.setCurrentIndex(2)
-        self.tabWidget_4.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget_2.setCurrentIndex(0)
+        self.tabWidget_3.setCurrentIndex(0)
+        self.tabWidget_4.setCurrentIndex(0)
         self.pushButton_2.clicked.connect(MainWindow.file1_save)
         self.pushButton_12.clicked.connect(MainWindow.file5_save)
         self.pushButton_28.clicked.connect(MainWindow.file2_save)
@@ -904,7 +904,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "v0.1"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "v_1.0"))
         self.label.setText(_translate("MainWindow", "模型选择"))
         self.pushButton.setText(_translate("MainWindow", "打开文件编辑"))
         self.comboBox.setItemText(0, _translate("MainWindow", "平衡"))

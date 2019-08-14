@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1081</width>
-    <height>659</height>
+    <width>900</width>
+    <height>608</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>v0.1</string>
+   <string>v_1.0</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="tabWidget">
@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -40,7 +40,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_5">
        <attribute name="title">
@@ -1117,7 +1117,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_7">
        <attribute name="title">
@@ -2139,7 +2139,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_10">
        <attribute name="title">
@@ -3210,7 +3210,7 @@
         <x>200</x>
         <y>110</y>
         <width>93</width>
-        <height>28</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
@@ -3223,7 +3223,7 @@
         <x>510</x>
         <y>110</y>
         <width>93</width>
-        <height>28</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
@@ -3238,7 +3238,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1081</width>
+     <width>900</width>
      <height>26</height>
     </rect>
    </property>

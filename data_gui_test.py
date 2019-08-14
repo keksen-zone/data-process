@@ -327,8 +327,8 @@ class DataWindow(QMainWindow, Ui_MainWindow):
                     f5.write(line)
                 f5.write("\nENDFI----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
             QMessageBox.information(self, '已完成', '数据保存到mesh.txt\n生成网格前请打开生成文件以确认格式正确', QMessageBox.Yes)
-            os.remove("dke1.txt")
-            os.remove("dke2.txt")
+            #os.remove("dke1.txt")
+            #os.remove("dke2.txt")
         elif (self.radioButton_2.isChecked()):
             print("柱坐标")
             with open("mesh.txt","w") as f5:
@@ -371,7 +371,7 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f6.write("%5s%15.3f%10s%10s%10s\n"%("8",float(sfs)-0.01,csn,csa,"11"))
         QMessageBox.information(self, '已完成', '数据保存到file6.txt\n建议打开生成文件以确认', QMessageBox.Yes)
 
-    def add_file_7_8(self):
+    def add_file7_8(self):
         mc = self.lineEdit_85.text()
         jhbm = self.lineEdit_86.text()
         scfs = self.lineEdit_88.text()
@@ -484,7 +484,7 @@ class DataWindow(QMainWindow, Ui_MainWindow):
                     print(line, end='')
                 file.write('\n')
             file.close()
-            QMessageBox.information(self, '已完成', '所有数据已合并到input文件中\n在进行下一步的操作前，强烈建议打开input文件以确认文件格式', QMessageBox.Yes)
+            QMessageBox.information(self, '已完成', '所有数据已合并到input文件中\n在进行下一步的操作前，建议打开input文件以确认文件格式', QMessageBox.Yes)
         else:
             pass
 

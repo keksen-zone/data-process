@@ -257,7 +257,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "v 1.0"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "v_1.0"))
         self.label.setText(_translate("MainWindow", "这是一个简单的绘图小程序 ：)"))
         self.label_2.setText(_translate("MainWindow", "首先请从上方菜单中打开绘图所需文件"))
         self.label_3.setText(_translate("MainWindow", "或者手动将所需文件放到程序所在目录"))
