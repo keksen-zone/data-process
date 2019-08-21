@@ -129,6 +129,8 @@ class GraphWindow(QMainWindow, Ui_MainWindow):
             self.comboBox_4.addItems(ceng)
             self.comboBox_5.addItems(pou)
             self.comboBox_9.addItems(["0:P", "1:T", "2:SH", "3:SW", "4:SG", "5:SI", "6:C_Inhib", "7:Krg", "8:Krw"])
+            QMessageBox.information(self, '已完成', '数据读取完成\n可以进行下一步操作',
+                                    QMessageBox.Yes)
         else:
             pass
 
