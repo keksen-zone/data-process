@@ -96,7 +96,7 @@ class GraphWindow(QMainWindow, Ui_MainWindow):
             #print(filelist)
             if (len(filelist_csv) > 0):
                 reply = QMessageBox.question(self, '目标文件夹不为空',
-                                             '检测到拆分目标文件夹中有残留内容\n这可能是程序上次运行的输出，可以直接使用这些数据绘图或手动将这些内容删除\n若继续拆分，会造成两次数据的混合\n仍然要继续吗',
+                                             '检测到拆分目标文件夹中有残留内容\n这可能是程序上次运行的输出，可以直接使用这些数据绘图或手动将这些内容删除\n若继续拆分，会造成两次数据的混合或其他预想不到的后果\n仍然要继续吗',
                                              QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
                 if reply == QMessageBox.Yes:
                     chaifen()
@@ -224,8 +224,6 @@ class GraphWindow(QMainWindow, Ui_MainWindow):
                 print("属性框的内容为：" + str_attr)
                 attri = int(str_attr.split(':')[0])
                 print(self.comboBox_2.currentText())
-                # 破案了，问题出在print中 string和int、float不能混着用
-                # 所以调用时传递的参数一定要对
                 y_cut(self.comboBox_2.currentText(), int(attri),
                       self.comboBox_5.currentText(), 1,
                       x, y, z)

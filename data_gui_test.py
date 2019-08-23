@@ -13,6 +13,7 @@ class DataWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
 
         self.radioButton_5.setChecked(True)
+        self.plainTextEdit_4.setPlainText("这部分的功能尚未实现\n请手动打开文件进行操作")
 
     def load_file1(self):
         if (os.path.exists("file1.txt")):
@@ -67,7 +68,7 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             QMessageBox.information(self, '打开失败', '未找到文件file10.txt', QMessageBox.Yes)
 
     # 注意：对于柱坐标的处理尚未完成
-    def zzb_add(self):
+    def zzb_add(self): # pushbutton8
         with open("zzb1.txt","a") as zzb1:
             qymc = self.lineEdit_21.text()
             rmin = self.lineEdit_25.text()
@@ -82,24 +83,25 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             self.lineEdit_24.clear()
             self.lineEdit_26.clear()
             self.lineEdit_27.clear()
-
             self.plainTextEdit_2.clear()
-            with open("zzb1.txt", "r") as zzb1_read:
-                zzb1_text = zzb1_read.readlines()
-                print(zzb1_text)
-                for line in zzb1_text:
-                    line = line.replace("\n", "")
-                    self.plainTextEdit_2.appendPlainText(line)
-    def zzb_ano_add(self):
+        with open("zzb1.txt", "r") as zzb1_read:
+            zzb1_text = zzb1_read.readlines()
+            print(zzb1_text)
+            for line in zzb1_text:
+                line = line.replace("\n", "")
+                self.plainTextEdit_2.appendPlainText(line)
+    def zzb_ano_add(self): # pushbutton 11
+        # 这里的功能尚未实现
         with open("zzb2.txt","a") as zzb2:
             pass
-    def zzb_save(self):
+    def zzb_save(self): # pushbuttton9
         with open("zzb1.txt","w") as dke1:
             text = self.plainTextEdit_2.toPlainText()
             print("save test:")
             print(text)
             dke1.write(text)
-    def zzb_ano_save(self):
+    def zzb_ano_save(self): # pushbutton10
+        # 这里的功能尚未实现
         pass
 
     def dke_add(self):
@@ -158,11 +160,16 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             print(text)
             dke2.write(text)
     def make_mesh(self):
-        shutil.copy("mesh.txt","mesh_in.txt")
-        os.rename("mesh_in.txt","mesh.dat")
-        os.system("MeshMaker.exe<mesh.dat>out")
-        QMessageBox.information(self, '已完成', '网格已生成完成\n建议打开输出文件以确认', QMessageBox.Yes)
-        shutil.copy("MESH", "file5.txt")
+        reply = QMessageBox.question(self, '即将生成网格', '目录下是否已存在mesh.txt', QMessageBox.Yes | QMessageBox.No,
+                                     QMessageBox.Yes)
+        if reply == QMessageBox.Yes:
+            shutil.copy("mesh.txt","mesh_in.txt")
+            os.rename("mesh_in.txt","mesh.dat")
+            os.system("MeshMaker.exe<mesh.dat>out")
+            QMessageBox.information(self, '已完成', '网格已生成完成\n建议打开输出文件以确认', QMessageBox.Yes)
+            shutil.copy("MESH", "file5.txt")
+        else:
+            pass
 
     def file1_save(self):
         with open("file1.txt",'w') as f1:
@@ -189,6 +196,13 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f1.write("%10s%10s%2s\n"%(zdwgs,zdljs,"5"))
             f1.write("%5s\n"%zdyhxs)
             f1.write("%5s\n"%zdjzs)
+        self.lineEdit.clear()
+        self.lineEdit_2.clear()
+        self.lineEdit_3.clear()
+        self.lineEdit_4.clear()
+        self.lineEdit_5.clear()
+        self.lineEdit_6.clear()
+        self.lineEdit_7.clear()
         QMessageBox.information(self, '已完成', '数据保存到file6.txt\n建议打开生成文件以确认', QMessageBox.Yes)
 
     def rock_add(self):
@@ -281,6 +295,15 @@ class DataWindow(QMainWindow, Ui_MainWindow):
                 gysl = self.lineEdit_31.text()
                 bmyz = self.lineEdit_32.text()
                 f3.write("%5s%8s%8s\n"%(hhn,gysl,bmyz))
+        self.lineEdit_76.clear()
+        self.lineEdit_77.clear()
+        self.lineEdit_78.clear()
+        self.lineEdit_79.clear()
+        self.lineEdit_80.clear()
+        self.lineEdit_81.clear()
+        self.lineEdit_82.clear()
+        self.lineEdit_83.clear()
+        self.lineEdit_84.clear()
         QMessageBox.information(self, '已完成', '数据保存到file3.txt\n建议打开生成文件以确认', QMessageBox.Yes)
 
     def file4_save(self):
@@ -303,6 +326,17 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f4.write("%10s%10s%10s%10s%20s\n"%(start,end,min_time,max_time,"9.8060"))
             f4.write("%10s%10s%40s%15s\n"%("1.E-5","1.E00","1.0e-8",init))
             f4.write("%20s%20s%20s%20s\n"%(first,second,third,fourth))
+        self.lineEdit_44.clear()
+        self.lineEdit_45.clear()
+        self.lineEdit_46.clear()
+        self.lineEdit_47.clear()
+        self.lineEdit_48.clear()
+        self.lineEdit_49.clear()
+        self.lineEdit_50.clear()
+        self.lineEdit_40.clear()
+        self.lineEdit_41.clear()
+        self.lineEdit_42.clear()
+        self.lineEdit_43.clear()
         QMessageBox.information(self, '已完成', '数据保存到file4.txt\n建议打开生成文件以确认', QMessageBox.Yes)
 
     # ！！！------file5相关没有完成
@@ -350,11 +384,19 @@ class DataWindow(QMainWindow, Ui_MainWindow):
                 zzb2 = open("zzb2.txt", "r")
                 for line in zzb2.readlines():
                     f5.write(line)
-
-                zzb3 = open("zzb3.txt", "r") # 用来放layer相关的部分数据文件
-                for line in zzb3.readlines():
-                    f5.write(line)
+                # 这里应该是对layer部分进行处理，但有些没想好应该如何处理
+                # 暂且保留，默认置入20个默认值
+                # zzb3 = open("zzb3.txt", "r") # 用来放layer相关的部分数据文件
+                # for line in zzb3.readlines():
+                #     f5.write(line)
+                f5.write("\nLAYER\n")
+                f5.write("   20\n")
+                f5.write("    8.0e00    8.0e00    8.0e00    8.0e00    8.0e00    4.0e00    4.0e00    4.0e00\n")
+                f5.write("    4.0e00    4.0e00    4.0e00    4.0e00    4.0e00    4.0e00    4.0e00    8.0e00\n")
+                f5.write("    8.0e00    8.0e00    8.0e00    8.0e00\n")
                 f5.write("\nENDFI----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
+            QMessageBox.information(self, '注意', '对于柱坐标的处理尚不完善\n请手动进行确认', QMessageBox.Yes)
+            QMessageBox.information(self, '注意', '涉及到LAYER部分置入了20个默认值，这些需要手动修改', QMessageBox.Yes)
             QMessageBox.information(self, '已完成', '数据保存到mesh.txt\n生成网格前请打开生成文件以确认格式正确', QMessageBox.Yes)
 
     def file6_save(self):
@@ -369,6 +411,13 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f6.write("RPCAP----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
             f6.write("%5s%15s%10s%10s%10s\n"%("6",sfs,"0.05",sfq,xsxs))
             f6.write("%5s%15.3f%10s%10s%10s\n"%("8",float(sfs)-0.01,csn,csa,"11"))
+        self.lineEdit_33.clear()
+        self.lineEdit_34.clear()
+        self.lineEdit_35.clear()
+        self.lineEdit_36.clear()
+        self.lineEdit_37.clear()
+        self.lineEdit_33.clear()
+        self.lineEdit_33.clear()
         QMessageBox.information(self, '已完成', '数据保存到file6.txt\n建议打开生成文件以确认', QMessageBox.Yes)
 
     def add_file7_8(self):
@@ -434,8 +483,8 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             for line in gener.readlines():
                 f8.write(line)
         QMessageBox.information(self, '已完成', '数据保存到file7.txt和file8.txt\n建议打开生成文件以确认', QMessageBox.Yes)
-        os.remove("coft.txt")
-        os.remove("gener.txt")
+        # os.remove("coft.txt")
+        # os.remove("gener.txt")
 
     def file9_save(self):
         wgmc = self.lineEdit_51.text()
@@ -449,33 +498,88 @@ class DataWindow(QMainWindow, Ui_MainWindow):
             f9.write("INCON----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
             f9.write("%5s%25s%5s\n"%(wgmc,kxd,cszt))
             f9.write("%20s%20s%20s%20s\n"%(zbl1,zbl2,zbl3,zbl4))
+        self.lineEdit_51.clear()
+        self.lineEdit_52.clear()
+        self.lineEdit_53.clear()
+        self.lineEdit_54.clear()
+        self.lineEdit_55.clear()
+        self.lineEdit_56.clear()
+        self.lineEdit_57.clear()
         QMessageBox.information(self, '已完成', '数据成功保存在file9.txt\n建议打开生成文件以确认',QMessageBox.Yes)
 
     def file10_save(self):
-        wgmc = self.lineEdit_73.text()
         cszt = self.lineEdit_75.text()
         zbl1 = self.lineEdit_58.text()
         zbl2 = self.lineEdit_60.text()
         zbl3 = self.lineEdit_74.text()
         zbl4 = self.lineEdit_59.text()
+        wgmc = self.lineEdit_73.text()
         with open("file10.txt","w") as f10:
             f10.write("INDOM----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
             f10.write("%5s%5s\n"%(wgmc,cszt))
             f10.write("%20s%20s%20s%20s\n"%(zbl1,zbl2,zbl3,zbl4))
             f10.write("ENDCY----1----*----2----*----3----*----4----*----5----*----6----*----7----*----8\n")
+        self.lineEdit_75.clear()
+        self.lineEdit_58.clear()
+        self.lineEdit_60.clear()
+        self.lineEdit_74.clear()
+        self.lineEdit_59.clear()
+        self.lineEdit_73.clear()
         QMessageBox.information(self, '已完成', '数据成功保存在file10.txt\n建议打开生成文件以确认', QMessageBox.Yes)
 
     def exit_data(self):
         self.close()
 
     def combine_all_files(self):
-        reply = QMessageBox.question(self, '即将进行文件的合并', '目录下是否已存在或已生成合并所需file 1~10', QMessageBox.Yes | QMessageBox.No,
+        reply = QMessageBox.question(self, '即将进行文件的合并', '目录下是否已存在合并所需file 1~10', QMessageBox.Yes | QMessageBox.No,
                                      QMessageBox.Yes)
         if reply == QMessageBox.Yes:
             #shutil.copy("MESH","file5.txt")
             filenames = ['file1.txt', 'file2.txt', 'file3.txt', 'file4.txt', 'file5.txt', 'file6.txt', 'file7.txt',
                          'file8.txt', 'file9.txt', 'file10.txt']
             print(filenames)
+
+            if (os.path.exists("file1.txt")):pass
+            else:
+                QMessageBox.information(self, '出现错误', 'file1不存在，文件合并失败', QMessageBox.Yes)
+                return
+            if (os.path.exists("file2.txt")):pass
+            else:
+                QMessageBox.information(self, '出现错误', 'file2不存在，文件合并失败', QMessageBox.Yes)
+                return
+            if (os.path.exists("file3.txt")):pass
+            else:
+                QMessageBox.information(self, '出现错误', 'file3不存在，文件合并失败', QMessageBox.Yes)
+                return
+            if (os.path.exists("file4.txt")):pass
+            else:
+                QMessageBox.information(self, '出现错误', 'file4不存在，文件合并失败', QMessageBox.Yes)
+                return
+            if (os.path.exists("file5.txt")):pass
+            else:
+                QMessageBox.information(self, '出现错误', 'file5不存在，文件合并失败', QMessageBox.Yes)
+                return
+            if (os.path.exists("file6.txt")):pass
+            else:
+                QMessageBox.information(self, '出现错误', 'file6不存在，文件合并失败', QMessageBox.Yes)
+                return
+            if (os.path.exists("file7.txt")):pass
+            else:
+                QMessageBox.information(self, '出现错误', 'file7不存在，文件合并失败', QMessageBox.Yes)
+                return
+            if (os.path.exists("file8.txt")):pass
+            else:
+                QMessageBox.information(self, '出现错误', 'file8不存在，文件合并失败', QMessageBox.Yes)
+                return
+            if (os.path.exists("file9.txt")):pass
+            else:
+                QMessageBox.information(self, '出现错误', 'file9不存在，文件合并失败', QMessageBox.Yes)
+                return
+            if (os.path.exists("file10.txt")):pass
+            else:
+                QMessageBox.information(self, '出现错误', 'file10不存在，文件合并失败', QMessageBox.Yes)
+                return
+
             file = open('input', 'w')
             for f_n in filenames:
                 filepath = f_n

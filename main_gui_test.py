@@ -18,7 +18,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         tmp.show()
 
     def calculate(self):
-        reply = QMessageBox.question(self, '即将调用主程序进行模拟', '目录下是否已存在所需input文件\n（建议手动对input文件进行检查以防止出错）', QMessageBox.Yes | QMessageBox.No,
+        reply = QMessageBox.question(self, '即将调用主程序进行模拟', '目录下是否已存在所需input文件以及计算主程序\n（建议手动对input文件进行检查以防止出错）', QMessageBox.Yes | QMessageBox.No,
                                      QMessageBox.Yes)
         if reply == QMessageBox.Yes:
             os.system("main.exe")
