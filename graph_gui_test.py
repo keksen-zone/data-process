@@ -7,13 +7,13 @@ from PyQt5.QtWidgets import QGraphicsOpacityEffect
 from get_all_data import *
 from z_cut import *
 from y_cut import *
-# from get_wg import *
 from three_dim_test import *
 from hqx import *
 from mv_test import *
 from chaifen_test import *
 from cut2csv import *
 from average import *
+from txt2csv import *
 
 class GraphWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
@@ -91,7 +91,27 @@ class GraphWindow(QMainWindow, Ui_MainWindow):
             else:
                 os.mkdir("cutted2csv/")
 
-            # filelist_txt = os.listdir("cutted/")
+            # 检查文件存在,之后进行格式转换
+            if (os.path.exists("Plot_coord.txt")):
+                pass
+            else:
+                QMessageBox.information(self, '失败', '未找到文件Plot_coord.txt', QMessageBox.Yes)
+                return
+            if (os.path.exists("Hydrate_Info.txt")):
+                pass
+            else:
+                QMessageBox.information(self, '失败', '未找到文件Hydrate_Info.txt', QMessageBox.Yes)
+                return
+            if (os.path.exists("SS_Time_Series.txt")):
+                pass
+            else:
+                QMessageBox.information(self, '失败', '未找到文件SS_Time_Series.txt', QMessageBox.Yes)
+                return
+            if (os.path.exists("Plot_Data1.txt")):
+                pass
+            else:
+                QMessageBox.information(self, '失败', '未找到文件Plot_Data1.txt', QMessageBox.Yes)
+                return
             filelist_csv = os.listdir("cutted2csv/")
             #print(filelist)
             if (len(filelist_csv) > 0):
@@ -101,6 +121,9 @@ class GraphWindow(QMainWindow, Ui_MainWindow):
                 if reply == QMessageBox.Yes:
                     chaifen()
                     cut2csv()
+                    txt2csv_ss()
+                    txt2csv_hydra()
+                    txt2csv_coord()
                     QMessageBox.information(self, '已完成', '数据已按照时间拆分并命名在cutted2csv文件夹下\n程序退出后它们将不会被自动删除\n稍后也可以自行查看或处理',
                                             QMessageBox.Yes)
                 else:
@@ -108,6 +131,9 @@ class GraphWindow(QMainWindow, Ui_MainWindow):
             else:
                 chaifen()
                 cut2csv()
+                txt2csv_ss()
+                txt2csv_hydra()
+                txt2csv_coord()
                 QMessageBox.information(self, '已完成', '数据已按照时间拆分并命名在cutted2csv文件夹下\n程序退出后它们将不会被自动删除\n稍后也可以自行查看或处理',
                                         QMessageBox.Yes)
             # os.system("ren output output.txt")
